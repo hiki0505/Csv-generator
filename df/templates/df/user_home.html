@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+        <a class="navbar-brand" href="#">FakeCSV</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Schemas</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link mr-3" href="#">Hello, {{user.username}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link mr-3" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+<!--            <li class="nav-item"><a class="nav-link mr-3" href="#">Hello, username</a></li>-->
+<!--            <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>-->
+        </ul>
+    </nav>
+
+    <main class="mt-5">
+        <div class="container w-75 m-auto">
+            <div class="d-flex justify-content-between"">
+                <span style=" font-size: 30px;">Data Schemas</span>
+                <button type="button" class="btn btn-success">New Schema</button>
+            </div>
+
+            <div class="mt-5">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Modified</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Customers</td>
+                            <td>2020-03-16</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm mr-3">New Schema</button>
+                                <button type="button" class="btn btn-danger btn-sm">New Schema</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Appartments</td>
+                            <td>2020-02-16</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm mr-3">New Schema</button>
+                                <button type="button" class="btn btn-danger btn-sm">New Schema</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Influences</td>
+                            <td>2020-11-16</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm mr-3">New Schema</button>
+                                <button type="button" class="btn btn-danger btn-sm">New Schema</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
