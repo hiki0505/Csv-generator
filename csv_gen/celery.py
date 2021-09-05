@@ -8,16 +8,16 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'csv_gen.settings')
 
 app = Celery('csv_gen')
 
-class CeleryConfig:
-    task_serializer = "pickle"
-    result_serializer = "pickle"
-    event_serializer = "json"
-    accept_content = ["application/json", "application/x-python-serialize"]
-    result_accept_content = ["application/json", "application/x-python-serialize"]
+# class CeleryConfig:
+#     task_serializer = "pickle"
+#     result_serializer = "pickle"
+#     event_serializer = "json"
+#     accept_content = ["application/json", "application/x-python-serialize"]
+#     result_accept_content = ["application/json", "application/x-python-serialize"]
 
 
-app.config_from_object(CeleryConfig)
-# app.config_from_object('django.conf:settings', namespace='CELERY')
+# app.config_from_object(CeleryConfig)
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks()
 

@@ -82,6 +82,12 @@ DATABASES = {
     }
 }
 
+CELERY_SERIALIZER = "pickle"
+CELERY_RESULT_SERIALIZER = "pickle"
+CELERY_EVENT_SERIALIZER = "json"
+CELERY_ACCEPT_CONTENT = ["application/json", "application/x-python-serialize"]
+# CELERY_BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_BROKER_URL = 'redis://:pbec509043178354e7497fd929e82b08941a6c75cc802bcab57fc0ff153fcf0e1@ec2-54-210-213-54.compute-1.amazonaws.com:10030'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -101,6 +107,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CACHES = {
+
+    "default": {
+
+        "BACKEND": "django_redis.cache.RedisCache",
+
+        "LOCATION": [f"{config('REDIS_TLS_URL')}/1"],
+
+        "OPTIONS": {
+
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+
+            # "SERIALIZER": "django_redis.serializers.json.JSONSerializer",
+
+            "CONNECTION_POOL_KWARGS": {
+
+                "ssl_cert_reqs": None,
+
+                "max_connections": 500,
+
+                "retry_on_timeout": True
+
+            },
+
+        }
+
+    }
+
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
