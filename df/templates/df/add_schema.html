@@ -15,7 +15,7 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
     <a class="navbar-brand" href="#">FakeCSV</a>
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Schemas</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'processing_data' %}">Schemas</a></li>
     </ul>
     <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
