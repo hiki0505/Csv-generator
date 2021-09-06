@@ -64,9 +64,13 @@ def processing_data(request):
         data_schemas = Dataframe.objects.filter(user=request.user)
         row_nums = request.POST.get('row_nums')
 
+        schema_user_dict = {
+            'data_schemas': data_schemas,
+            'user': request.user
+        }
+
         generate_data.delay(
-            data_schemas,
-            request.user,
+            schema_user_dict,
             dict(request.session),
             int(row_nums)
         )

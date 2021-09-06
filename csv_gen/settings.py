@@ -83,10 +83,10 @@ DATABASES = {
     }
 }
 
-CELERY_SERIALIZER = "pickle"
-CELERY_RESULT_SERIALIZER = "pickle"
-CELERY_EVENT_SERIALIZER = "json"
-CELERY_ACCEPT_CONTENT = ["application/json", "application/x-python-serialize"]
+# CELERY_SERIALIZER = "pickle"
+# CELERY_RESULT_SERIALIZER = "pickle"
+# CELERY_EVENT_SERIALIZER = "json"
+# CELERY_ACCEPT_CONTENT = ["application/json", "application/x-python-serialize"]
 CELERY_BROKER_URL = os.environ.get('REDIS_URL')
 # CELERY_BROKER_URL = 'redis://:pbec509043178354e7497fd929e82b08941a6c75cc802bcab57fc0ff153fcf0e1@ec2-54-210-213-54.compute-1.amazonaws.com:10030'
 
