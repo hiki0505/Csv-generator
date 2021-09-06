@@ -13,11 +13,9 @@ def save_data(data, df_name, col_types):
     # data.to_csv('{}.csv'.format(df_name))
 
 
-def gen_data(schema_user_dict, session_dict, row_nums):
-    schemas = schema_user_dict['data_schemas']
-    user = schema_user_dict['user']
+def gen_data(data_schemas, user, session_dict, row_nums):
     # new_data_dict = {}
-    for d in schemas:
+    for d in data_schemas:
         new_d = DataframeFilled()
         new_data = pd.DataFrame(
             columns=d.data.columns,

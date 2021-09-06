@@ -13,11 +13,7 @@ def save_and_download_data(data, df_name, col_types):
     return save_data(data, df_name, col_types)
 
 
-# @task(name="generate_data")
-# def generate_data(data_schemas, user, session_dict, row_nums):
-#     logger.info("Data saved successfully")
-#     return gen_data(data_schemas, user, session_dict, row_nums)
 @task(name="generate_data")
-def generate_data(schema_user_dict, session_dict, row_nums):
+def generate_data(data_schemas, user, session_dict, row_nums):
     logger.info("Data saved successfully")
-    return gen_data(schema_user_dict, session_dict, row_nums)
+    return gen_data(data_schemas, user, session_dict, row_nums)
